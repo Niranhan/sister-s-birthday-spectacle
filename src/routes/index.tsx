@@ -338,6 +338,7 @@ function Index() {
   return (
     <div className="relative overflow-hidden">
       <Particles3D />
+      <BirthdaySong />
 
       {/* Hero with parallax photo stack */}
       <section className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 text-center">
