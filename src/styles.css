@@ -192,3 +192,16 @@
   color: transparent;
 }
 .animate-glow { animation: pulse-glow 2.5s ease-in-out infinite; }
+
+@keyframes float-3d {
+  0% { transform: translateY(0) translateZ(var(--tz, 0)) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(-110vh) translateZ(var(--tz, 0)) rotate(540deg); opacity: 0; }
+}
+.animate-float-3d { animation: float-3d linear infinite; }
+
+@keyframes flame {
+  0%, 100% { transform: translateZ(-180px) rotateX(-90deg) scale(1, 1); opacity: 1; }
+  50% { transform: translateZ(-180px) rotateX(-90deg) scale(1.15, 0.9); opacity: 0.85; }
+}
+.animate-flame { animation: flame 0.6s ease-in-out infinite; }
