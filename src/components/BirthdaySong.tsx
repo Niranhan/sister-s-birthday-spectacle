@@ -85,7 +85,7 @@ export function BirthdaySong() {
   return (
     <button
       onClick={play}
-      className="fixed bottom-6 right-6 z-40 group flex items-center gap-3 rounded-full bg-white/80 backdrop-blur px-5 py-3 shadow-[0_10px_30px_-10px_rgba(180,40,90,0.45)] hover:scale-105 active:scale-95 transition-transform"
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 group flex items-center gap-2 sm:gap-3 rounded-full bg-white/85 backdrop-blur px-3 sm:px-5 py-2 sm:py-3 shadow-[0_10px_30px_-10px_rgba(180,40,90,0.45)] hover:scale-105 active:scale-95 transition-transform"
       aria-label={playing ? "Stop song" : "Play birthday song"}
     >
       <span className="relative inline-flex items-center justify-center w-9 h-9 rounded-full bg-[var(--rose)] text-white text-lg">

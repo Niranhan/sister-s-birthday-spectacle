@@ -108,12 +108,23 @@ function Carousel3D() {
     setTimeout(() => (auto.current = true), 2500);
   };
 
-  const radius = 320;
+  const [dim, setDim] = useState({ radius: 220, w: 160, h: 220 });
+  useEffect(() => {
+    const onResize = () => {
+      const w = window.innerWidth;
+      if (w < 480) setDim({ radius: 180, w: 150, h: 210 });
+      else if (w < 768) setDim({ radius: 240, w: 180, h: 250 });
+      else setDim({ radius: 320, w: 220, h: 300 });
+    };
+    onResize();
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
   const step = 360 / photos.length;
 
   return (
     <div
-      className="relative w-full h-[520px] md:h-[640px] select-none cursor-grab active:cursor-grabbing"
+      className="relative w-full h-[440px] sm:h-[540px] md:h-[640px] select-none cursor-grab active:cursor-grabbing touch-pan-y"
       style={{ perspective: "1400px" }}
       onMouseDown={(e) => onDown(e.clientX)}
       onMouseMove={(e) => onMove(e.clientX)}
@@ -132,8 +143,8 @@ function Carousel3D() {
           style={{
             transformStyle: "preserve-3d",
             transform: `rotateY(${angle}deg) rotateX(-6deg)`,
-            width: 220,
-            height: 300,
+            width: dim.w,
+            height: dim.h,
           }}
         >
           {photos.map((src, i) => (
@@ -141,7 +152,7 @@ function Carousel3D() {
               key={i}
               className="absolute inset-0 rounded-2xl overflow-hidden"
               style={{
-                transform: `rotateY(${i * step}deg) translateZ(${radius}px)`,
+                transform: `rotateY(${i * step}deg) translateZ(${dim.radius}px)`,
                 backfaceVisibility: "hidden",
                 boxShadow: "0 30px 60px -20px rgba(180, 40, 90, 0.55), 0 0 0 1px rgba(255,255,255,0.2)",
               }}
@@ -163,8 +174,8 @@ function Carousel3D() {
           ))}
         </div>
       </div>
-      <p className="absolute bottom-2 left-1/2 -translate-x-1/2 text-xs uppercase tracking-[0.3em] text-foreground/50">
-        drag to spin
+      <p className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-[0.3em] text-foreground/50">
+        ← drag to spin →
       </p>
     </div>
   );
@@ -201,7 +212,7 @@ function TiltCard({ src, caption, index }: { src: string; caption: string; index
           boxShadow: "0 30px 60px -20px rgba(120, 30, 80, 0.45)",
         }}
       >
-        <img src={src} alt={caption} className="w-full h-[420px] object-cover" />
+        <img src={src} alt={caption} className="w-full h-[340px] sm:h-[400px] object-cover" />
         <div
           className="pointer-events-none absolute inset-0 mix-blend-overlay opacity-70"
           style={{
@@ -353,14 +364,14 @@ function Index() {
                 key={i}
                 src={src}
                 alt=""
-                className="absolute rounded-2xl object-cover"
+                className="absolute rounded-2xl object-cover w-[120px] h-[160px] sm:w-[180px] sm:h-[240px]"
                 style={{
-                  width: 180,
-                  height: 240,
-                  left: -90,
-                  top: -120,
-                  transform: `rotateY(${i * 120}deg) translateZ(280px)`,
-                  opacity: 0.35,
+                  left: "50%",
+                  top: "50%",
+                  marginLeft: "-60px",
+                  marginTop: "-80px",
+                  transform: `rotateY(${i * 120}deg) translateZ(220px)`,
+                  opacity: 0.3,
                   filter: "blur(1px)",
                   boxShadow: "0 20px 50px rgba(180,40,90,0.4)",
                 }}
@@ -372,7 +383,7 @@ function Index() {
         <div className="relative">
           <p className="font-script text-3xl md:text-5xl text-[var(--plum)] animate-fade-up">Happy Birthday</p>
           <h1
-            className="font-display text-7xl md:text-[10rem] font-bold leading-[0.95] mt-2 animate-shimmer animate-fade-up"
+            className="font-display text-6xl sm:text-7xl md:text-[10rem] font-bold leading-[0.95] mt-2 animate-shimmer animate-fade-up"
             style={{ animationDelay: "0.15s" }}
           >
             Dear Sister
@@ -394,19 +405,19 @@ function Index() {
       </section>
 
       {/* 3D Carousel */}
-      <section id="carousel" className="relative z-10 py-24 px-6 max-w-6xl mx-auto">
+      <section id="carousel" className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto">
         <div className="text-center mb-10">
           <p className="font-script text-2xl text-[var(--rose)]">spin through memories</p>
-          <h2 className="font-display text-5xl md:text-6xl font-bold mt-2">Moments in 3D</h2><div className="divider-bloom" />
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mt-2">Moments in 3D</h2><div className="divider-bloom" />
         </div>
         <Carousel3D />
       </section>
 
       {/* Tilt cards */}
-      <section className="relative z-10 py-24 px-6 max-w-7xl mx-auto">
+      <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <p className="font-script text-2xl text-[var(--rose)]">a glimpse of you</p>
-          <h2 className="font-display text-5xl md:text-6xl font-bold mt-2">Memories in Bloom</h2><div className="divider-bloom" />
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mt-2">Memories in Bloom</h2><div className="divider-bloom" />
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {photos.map((src, i) => (
@@ -416,11 +427,11 @@ function Index() {
       </section>
 
       {/* Wishes */}
-      <section className="relative z-10 py-24 px-6">
+      <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <p className="font-script text-2xl text-[var(--rose)]">straight from the heart</p>
-            <h2 className="font-display text-5xl md:text-6xl font-bold mt-2">My Birthday Wishes</h2><div className="divider-bloom" />
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mt-2">My Birthday Wishes</h2><div className="divider-bloom" />
           </div>
           <div className="grid md:grid-cols-3 gap-6" style={{ perspective: "1200px" }}>
             {wishes.map((w, i) => (
@@ -443,9 +454,9 @@ function Index() {
       </section>
 
       {/* 3D Cake finale */}
-      <section className="relative z-10 py-24 px-6 text-center">
+      <section className="relative z-10 py-20 sm:py-24 px-4 sm:px-6 text-center">
         <Cake3D />
-        <h2 className="font-display text-5xl md:text-7xl font-bold animate-shimmer mt-8">Make a Wish</h2>
+        <h2 className="font-display text-4xl sm:text-5xl md:text-7xl font-bold animate-shimmer mt-8">Make a Wish</h2>
         <p className="mt-6 font-script text-3xl text-[var(--plum)]">…and may every single one come true.</p>
         <p className="mt-12 text-sm uppercase tracking-[0.3em] text-foreground/50">
           with all my love, always
