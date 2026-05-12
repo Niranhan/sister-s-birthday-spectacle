@@ -408,7 +408,7 @@ function Index() {
       <section id="carousel" className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto">
         <div className="text-center mb-10">
           <p className="font-script text-2xl text-[var(--rose)]">spin through memories</p>
-          <h2 className="font-display text-5xl md:text-6xl font-bold mt-2">Moments in 3D</h2><div className="divider-bloom" />
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mt-2">Moments in 3D</h2><div className="divider-bloom" />
         </div>
         <Carousel3D />
       </section>
@@ -417,7 +417,7 @@ function Index() {
       <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <p className="font-script text-2xl text-[var(--rose)]">a glimpse of you</p>
-          <h2 className="font-display text-5xl md:text-6xl font-bold mt-2">Memories in Bloom</h2><div className="divider-bloom" />
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mt-2">Memories in Bloom</h2><div className="divider-bloom" />
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {photos.map((src, i) => (
@@ -431,7 +431,7 @@ function Index() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <p className="font-script text-2xl text-[var(--rose)]">straight from the heart</p>
-            <h2 className="font-display text-5xl md:text-6xl font-bold mt-2">My Birthday Wishes</h2><div className="divider-bloom" />
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mt-2">My Birthday Wishes</h2><div className="divider-bloom" />
           </div>
           <div className="grid md:grid-cols-3 gap-6" style={{ perspective: "1200px" }}>
             {wishes.map((w, i) => (
@@ -456,7 +456,7 @@ function Index() {
       {/* 3D Cake finale */}
       <section className="relative z-10 py-20 sm:py-24 px-4 sm:px-6 text-center">
         <Cake3D />
-        <h2 className="font-display text-5xl md:text-7xl font-bold animate-shimmer mt-8">Make a Wish</h2>
+        <h2 className="font-display text-4xl sm:text-5xl md:text-7xl font-bold animate-shimmer mt-8">Make a Wish</h2>
         <p className="mt-6 font-script text-3xl text-[var(--plum)]">…and may every single one come true.</p>
         <p className="mt-12 text-sm uppercase tracking-[0.3em] text-foreground/50">
           with all my love, always
