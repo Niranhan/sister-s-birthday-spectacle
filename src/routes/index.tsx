@@ -108,12 +108,23 @@ function Carousel3D() {
     setTimeout(() => (auto.current = true), 2500);
   };
 
-  const radius = 320;
+  const [dim, setDim] = useState({ radius: 220, w: 160, h: 220 });
+  useEffect(() => {
+    const onResize = () => {
+      const w = window.innerWidth;
+      if (w < 480) setDim({ radius: 180, w: 150, h: 210 });
+      else if (w < 768) setDim({ radius: 240, w: 180, h: 250 });
+      else setDim({ radius: 320, w: 220, h: 300 });
+    };
+    onResize();
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
   const step = 360 / photos.length;
 
   return (
     <div
-      className="relative w-full h-[520px] md:h-[640px] select-none cursor-grab active:cursor-grabbing"
+      className="relative w-full h-[440px] sm:h-[540px] md:h-[640px] select-none cursor-grab active:cursor-grabbing touch-pan-y"
       style={{ perspective: "1400px" }}
       onMouseDown={(e) => onDown(e.clientX)}
       onMouseMove={(e) => onMove(e.clientX)}
@@ -132,8 +143,8 @@ function Carousel3D() {
           style={{
             transformStyle: "preserve-3d",
             transform: `rotateY(${angle}deg) rotateX(-6deg)`,
-            width: 220,
-            height: 300,
+            width: dim.w,
+            height: dim.h,
           }}
         >
           {photos.map((src, i) => (
@@ -141,7 +152,7 @@ function Carousel3D() {
               key={i}
               className="absolute inset-0 rounded-2xl overflow-hidden"
               style={{
-                transform: `rotateY(${i * step}deg) translateZ(${radius}px)`,
+                transform: `rotateY(${i * step}deg) translateZ(${dim.radius}px)`,
                 backfaceVisibility: "hidden",
                 boxShadow: "0 30px 60px -20px rgba(180, 40, 90, 0.55), 0 0 0 1px rgba(255,255,255,0.2)",
               }}
@@ -163,8 +174,8 @@ function Carousel3D() {
           ))}
         </div>
       </div>
-      <p className="absolute bottom-2 left-1/2 -translate-x-1/2 text-xs uppercase tracking-[0.3em] text-foreground/50">
-        drag to spin
+      <p className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-[0.3em] text-foreground/50">
+        ← drag to spin →
       </p>
     </div>
   );
