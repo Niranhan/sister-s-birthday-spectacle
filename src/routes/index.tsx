@@ -337,6 +337,7 @@ function Index() {
 
   return (
     <div className="relative overflow-hidden">
+      <div className="aurora" />
       <Particles3D />
       <BirthdaySong />
 
