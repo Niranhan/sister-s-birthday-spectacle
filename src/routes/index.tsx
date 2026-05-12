@@ -212,7 +212,7 @@ function TiltCard({ src, caption, index }: { src: string; caption: string; index
           boxShadow: "0 30px 60px -20px rgba(120, 30, 80, 0.45)",
         }}
       >
-        <img src={src} alt={caption} className="w-full h-[420px] object-cover" />
+        <img src={src} alt={caption} className="w-full h-[340px] sm:h-[400px] object-cover" />
         <div
           className="pointer-events-none absolute inset-0 mix-blend-overlay opacity-70"
           style={{
@@ -383,7 +383,7 @@ function Index() {
         <div className="relative">
           <p className="font-script text-3xl md:text-5xl text-[var(--plum)] animate-fade-up">Happy Birthday</p>
           <h1
-            className="font-display text-7xl md:text-[10rem] font-bold leading-[0.95] mt-2 animate-shimmer animate-fade-up"
+            className="font-display text-6xl sm:text-7xl md:text-[10rem] font-bold leading-[0.95] mt-2 animate-shimmer animate-fade-up"
             style={{ animationDelay: "0.15s" }}
           >
             Dear Sister
@@ -405,7 +405,7 @@ function Index() {
       </section>
 
       {/* 3D Carousel */}
-      <section id="carousel" className="relative z-10 py-24 px-6 max-w-6xl mx-auto">
+      <section id="carousel" className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto">
         <div className="text-center mb-10">
           <p className="font-script text-2xl text-[var(--rose)]">spin through memories</p>
           <h2 className="font-display text-5xl md:text-6xl font-bold mt-2">Moments in 3D</h2><div className="divider-bloom" />
@@ -414,7 +414,7 @@ function Index() {
       </section>
 
       {/* Tilt cards */}
-      <section className="relative z-10 py-24 px-6 max-w-7xl mx-auto">
+      <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <p className="font-script text-2xl text-[var(--rose)]">a glimpse of you</p>
           <h2 className="font-display text-5xl md:text-6xl font-bold mt-2">Memories in Bloom</h2><div className="divider-bloom" />
@@ -427,7 +427,7 @@ function Index() {
       </section>
 
       {/* Wishes */}
-      <section className="relative z-10 py-24 px-6">
+      <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <p className="font-script text-2xl text-[var(--rose)]">straight from the heart</p>
@@ -454,7 +454,7 @@ function Index() {
       </section>
 
       {/* 3D Cake finale */}
-      <section className="relative z-10 py-24 px-6 text-center">
+      <section className="relative z-10 py-20 sm:py-24 px-4 sm:px-6 text-center">
         <Cake3D />
         <h2 className="font-display text-5xl md:text-7xl font-bold animate-shimmer mt-8">Make a Wish</h2>
         <p className="mt-6 font-script text-3xl text-[var(--plum)]">…and may every single one come true.</p>
