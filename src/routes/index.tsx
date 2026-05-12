@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
+import { BirthdaySong } from "@/components/BirthdaySong";
 import photo1 from "@/assets/photo-1.jpg";
 import photo2 from "@/assets/photo-2.jpg";
 import photo3 from "@/assets/photo-3.jpg";
@@ -336,7 +337,9 @@ function Index() {
 
   return (
     <div className="relative overflow-hidden">
+      <div className="aurora" />
       <Particles3D />
+      <BirthdaySong />
 
       {/* Hero with parallax photo stack */}
       <section className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 text-center">
@@ -394,7 +397,7 @@ function Index() {
       <section id="carousel" className="relative z-10 py-24 px-6 max-w-6xl mx-auto">
         <div className="text-center mb-10">
           <p className="font-script text-2xl text-[var(--rose)]">spin through memories</p>
-          <h2 className="font-display text-5xl md:text-6xl font-bold mt-2">Moments in 3D</h2>
+          <h2 className="font-display text-5xl md:text-6xl font-bold mt-2">Moments in 3D</h2><div className="divider-bloom" />
         </div>
         <Carousel3D />
       </section>
@@ -403,7 +406,7 @@ function Index() {
       <section className="relative z-10 py-24 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <p className="font-script text-2xl text-[var(--rose)]">a glimpse of you</p>
-          <h2 className="font-display text-5xl md:text-6xl font-bold mt-2">Memories in Bloom</h2>
+          <h2 className="font-display text-5xl md:text-6xl font-bold mt-2">Memories in Bloom</h2><div className="divider-bloom" />
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {photos.map((src, i) => (
@@ -417,7 +420,7 @@ function Index() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <p className="font-script text-2xl text-[var(--rose)]">straight from the heart</p>
-            <h2 className="font-display text-5xl md:text-6xl font-bold mt-2">My Birthday Wishes</h2>
+            <h2 className="font-display text-5xl md:text-6xl font-bold mt-2">My Birthday Wishes</h2><div className="divider-bloom" />
           </div>
           <div className="grid md:grid-cols-3 gap-6" style={{ perspective: "1200px" }}>
             {wishes.map((w, i) => (
