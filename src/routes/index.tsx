@@ -364,14 +364,14 @@ function Index() {
                 key={i}
                 src={src}
                 alt=""
-                className="absolute rounded-2xl object-cover"
+                className="absolute rounded-2xl object-cover w-[120px] h-[160px] sm:w-[180px] sm:h-[240px]"
                 style={{
-                  width: 180,
-                  height: 240,
-                  left: -90,
-                  top: -120,
-                  transform: `rotateY(${i * 120}deg) translateZ(280px)`,
-                  opacity: 0.35,
+                  left: "50%",
+                  top: "50%",
+                  marginLeft: "-60px",
+                  marginTop: "-80px",
+                  transform: `rotateY(${i * 120}deg) translateZ(220px)`,
+                  opacity: 0.3,
                   filter: "blur(1px)",
                   boxShadow: "0 20px 50px rgba(180,40,90,0.4)",
                 }}
